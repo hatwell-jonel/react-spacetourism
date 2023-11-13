@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+
 body{
   position: relative;
   font-size: 16px;
@@ -38,6 +39,7 @@ button{
 
 img{
   display:block;
+  max-width: 100%;
 }
 
 a{

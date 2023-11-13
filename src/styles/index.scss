@@ -1,16 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap');
 
 :root{
     --clr-white: hsl(0, 0%, 100%);
+    --center-element: 0% 5%;
 }
 
 @import "./mixins";
 @import "./globals";
 
 
+.header{
+    z-index: 999 !important;
+    position: absolute;
+    width: 100%;
+    top: 37px;
+    padding: var(--center-element);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__img{
+        width: 45px;
+    }
+
+    &__hamburger{
+        cursor: pointer;
+        display: flex !important;
+        align-items: center !important;
+        border: 0 !important;
+        outline: 0 !important;
+        background-color: transparent !important;
+        color: var(--clr-white);
+        font-size: 30px;
+
+        @include breakpoint(md){
+            display: none !important;
+        }
+    }
+
+
+    &__links{
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        min-height: 100% !important;
+        z-index: -1 !important;
+  
+        background: rgba(73, 72, 72, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(20, 15, 15, 0.2);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+        // for transitions
+        transition: .55s ease;
+        opacity: 0;
+
+        &--list{
+            position: relative;
+            transform: translateY(80%);
+
+            li{
+                padding: 5px 0px;
+                padding-left: .7rem;
+                margin: 10px 0px;        
+
+                a{
+                    text-transform: capitalize;
+                    color: var(--clr-white);
+                    font-family:'Courier New', Courier, monospace;
+                    font-size: 1.5rem;
+                    width: 100%;
+                    font-family: 'Montserrat', sans-serif;
+                }
+
+                .active{
+                    letter-spacing: 1px;
+                    border-bottom: 3px solid white;
+                    span{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        &--active{
+            left: 35%;
+            // for transitions
+            opacity: 1;
+        }
+
+        @include breakpoint(md){
+            left: 35%;
+            opacity: 1;
+            min-height: 85px !important;
+            top: 20px;
+
+            &--list{
+                margin-top: 15px;
+                padding-left: 10px;
+                transform: initial;
+                display: flex;
+                align-items: center;
+
+                li{
+                    position: relative;
+                    margin-right: 10px;
+
+                    a{
+                        font-size: .7rem;
+                        text-transform: uppercase;
+                        span{
+                            margin-right: 3px;
+                        }
+                    }
+
+                    .active{
+                        font-size: .8rem;
+                        border-bottom: 0;
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            background-color: white;
+                            height: 3px;
+                            border-radius: 5px;
+                            width: 100%;
+                            right: -6px;
+                            bottom: -30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include breakpoint(xlg){
+            left: 40%;
+
+            &::before{
+                content: "";
+                position: absolute;
+                width: 25%;
+                background-color: gray;
+                height: 1px;
+                top: 50%;
+                left: -25%;
+                opacity: .5;
+            }
+
+            &--list{
+                padding-left: 25px;
+
+                li{
+                    margin-right: 25px;
+                    a{
+                        font-size: .97rem;
+                    }
+    
+                    .active{
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
 .page__container{
-    position: relative !important;
-    height: 100vh !important;
+    position: fixed !important;
+    height: 100% !important;
     width: 100% !important;
+    z-index: -999;
+    top: 0;
+    left: 0;
 
     &--home{
         background: url(../assets/home/background-home-mobile.jpg) no-repeat center/cover !important;
