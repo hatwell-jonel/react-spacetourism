@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@300;400;500&family=Rajdhani:wght@300&display=swap');
 
 :root{
     --clr-white: hsl(0, 0%, 100%);
@@ -69,10 +69,9 @@
                 a{
                     text-transform: capitalize;
                     color: var(--clr-white);
-                    font-family:'Courier New', Courier, monospace;
+                    font-family: 'Rajdhani', sans-serif;
                     font-size: 1.5rem;
                     width: 100%;
-                    font-family: 'Montserrat', sans-serif;
                 }
 
                 .active{
@@ -167,7 +166,6 @@
     }
 }
 
-
 .page__container{
     position: fixed !important;
     height: 100% !important;
@@ -175,6 +173,20 @@
     z-index: -999;
     top: 0;
     left: 0;
+
+    
+    .content{
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        padding: var(--center-element);
+
+
+        @include breakpoint(md){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 
     &--home{
         background: url(../assets/home/background-home-mobile.jpg) no-repeat center/cover !important;
@@ -185,6 +197,122 @@
 
         @include breakpoint(lg){
             background: url(../assets/home/background-home-desktop.jpg) no-repeat center/cover !important;
+        }
+
+        .content{
+            @include breakpoint(md){
+                top: 210px
+            }
+        }
+
+
+        .home__left{
+            text-align: center;
+
+            @include breakpoint(md){
+                text-align: left;
+            }
+
+            @include breakpoint(lg){
+                padding-left: 5rem;
+                text-align: left;
+            }
+
+            h1{
+                color: white;
+                font-size: 3.3rem;
+                font-family: 'Lora', serif;
+                margin: 15px 0px;
+                letter-spacing: 5px;
+                @include breakpoint(md){
+                    font-size: 5.5rem;
+                }
+            }
+
+            p{
+                color: rgb(255, 255, 255);
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                line-height: 25px;
+                font-size: 1rem;
+                padding: 0;
+
+                @include breakpoint(sm){
+                }
+                
+                @include breakpoint(xlg){
+                    padding-right: 15rem;
+                }
+            }
+
+
+
+        }
+
+        .home__right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .explore{
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: black;
+                font-family: 'Lora', serif;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 1.2rem;
+                border: 0;
+                outline: 0;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                position: relative;
+                margin-top: 70px;
+
+                @include breakpoint(lg){
+                    width: 200px;
+                    height: 200px;
+                }
+
+                
+                @include breakpoint(xlg){
+                    width: 250px;
+                    height: 250px;
+                }
+
+
+                &:hover{
+
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        background-color: white;
+                        border-radius: 50%;
+                        width: 150px;
+                        height: 150px;
+                        transform: scale(1.5);
+                        opacity: .4;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                        transition: .3s ease;
+
+                        @include breakpoint(lg){
+                            width: 200px;
+                            height: 200px;
+                        }
+        
+                        
+                        @include breakpoint(xlg){
+                            width: 250px;
+                            height: 250px;
+                        }
+                    }
+                }
+            }
+
         }
     }
    
@@ -223,4 +351,6 @@
             background: url(../assets/technology/background-technology-desktop.jpg) no-repeat center/cover !important;
         }
     }
+
+
 }

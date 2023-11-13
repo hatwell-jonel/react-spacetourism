@@ -5,7 +5,7 @@ import {GiHamburgerMenu} from "react-icons/gi"
 import {FaTimes} from "react-icons/fa"
 
 
-const navLinks = ["home", "destination", "crew", "technology"];
+const navLinks = ["home", "destinations", "crew", "technology"];
 
 function Header() {
     const [showLinks, setShowLinks] = useState(false);
@@ -32,7 +32,7 @@ function Header() {
                 {
                     navLinks.map((item, index) => (
                         <li key={index}> 
-                            <NavLink to={`/${item}`}>
+                            <NavLink to={`/${item}`} onClick={handleShowLinks}>
                                 <span>{`0${index} `}</span>{item}
                             </NavLink>
                         </li>

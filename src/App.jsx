@@ -5,6 +5,7 @@ import Destination from './pages/Destination'
 import Crew from './pages/Crew'
 import Technology from './pages/Technology'
 import Header from './components/Header'
+import NotFound from './pages/NotFound'
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
 
           <Route path='/home' index element={<Home />} />
-          <Route path="/destination" element={<Destination />} />
+          <Route path="/destinations" element={<Destination />} />
           <Route path="/crew" element={<Crew />} />
           <Route path="/technology" element={<Technology />} />
       </Routes>
